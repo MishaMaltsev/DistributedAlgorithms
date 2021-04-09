@@ -52,7 +52,10 @@ public class MergeSort {
   }
   
   public static void Test(int port, String host) {
-    int[] a = { 5, 1, 6, 2, 3, 4, 10,634,34,23,653, 23,2 ,6};
+
+    //int[] a = { 5, 1, 6, 2, 3, 4, 10,634,34,23,653, 23,2 ,6};
+    //int[] a = { 100, 200, 6400, 212, 33, 4123, 102132312,623234,2334,212313,6553, 2653,256 ,6566, 45,787, 56345, 54756,3453452,345,657,1,2,3,4,7,567,7,7,7};
+    int[] a = { 100, 200, 6400, 212, 33, 4123, 102132312,623234,2334,212313,6553, 2653,256 ,6566, 45,787, 56345, 54756,3453452,345,657,1,2,3,4,7,567,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,1,23,4,3,4,5,6,4,5,74,8,2,3,4,2745,9,86,7,7,2,3,4,2,4,67,4,5,6,323,4,567897,6,54345,6,765,46,787,64,753,25679529, 1,1,1,1,1,1,1,1,1,1,0,0,0,-1};
     JSONObject response = NetworkUtils.send(host, port, init(a));
     
     System.out.println(response);
@@ -72,9 +75,17 @@ public class MergeSort {
   }
 
   public static void main(String[] args) {
-    
+    //include finding the time it takes
+    long startTime = System.nanoTime();
+
     // use the port of one of the branches to test things
     Test(Integer.valueOf(args[0]), args[1]);
 
+    //calculate and print out time it took
+    long endTime = System.nanoTime();
+    long totalTime = endTime - startTime;
+    double timeInSeocnds = totalTime / 1000000000.00000;
+    System.out.println("Total Time: " +totalTime + " ns");
+    System.out.println("Total Time: " +timeInSeocnds + " s");
   }
 }
