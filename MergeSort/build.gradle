@@ -23,7 +23,7 @@ task Starter(type: JavaExec) {
   standardInput = System.in
 
   args 7000
-  args 72.208.69.83
+  args 'localhost'
 }
 
 task Branch(type: JavaExec) {
@@ -34,11 +34,11 @@ task Branch(type: JavaExec) {
 
   main = 'mergeSort.Branch'
   standardInput = System.in
-  args 7002
-  args 8004
-  args 8005
+  args 7000
+  args 8000
+  args 8000
   
-  args 'localhost'
+  args '3.12.151.208'
   args 'localhost'
 
 }

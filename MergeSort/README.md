@@ -1,6 +1,6 @@
 # Activity 1 README
 
-## Task 1
+## Task 1 Getting Started
 
 ### 1. Explain the main structure of this code and the advantages and disadvantages of the setup of the distributed algorithm.
 
@@ -25,19 +25,29 @@
 
 ### 4. Explain the traffic that you see on Wireshark. How much traffic is generated with this setup and do you see a way to reduce it?
 
-> 
+> There is a substantial amount of communication through UDP. I think that this is a fairly low amount of traffic for this, and reducing it would mean changing the system significantly.
 
-## Task 2
+## Task 2 - Running it outside of localhost
 
 ### 1. Do you expect changes in runtimes? Why, why not?
 
+>The runtimes should most likley be slower due to latency. Since it has to connect over WIFI instead of just over the local network, I would assume that it would be slower.
+
 ### 2. Do you see a difference how long it takes to sort the arrays? Explain the differences (or why there are not differences)
 
-## Task 3
+> After running it, I was surprised to see that it was actually faster, doing the longest task that took 0.2 seconds on localhost in 0.13 seconds. I also noticed though that a substantial amount of the data is missing. It is most likely faster because some data was lost in the process, and only a fraction of the results were returned.
+
+## Task 3 - how to improve
+
+> Speed is not bad, but it does not return the correct data. Using TCP instead of UDP could be a way to improve, sacraficing speed for some more reliability. If it must stay in UDP, then there would have to be a lot more work done in the program to ensure that is has all the data it needs, find missing data, and put it in the correct place.
 
 ### 1. Where is the most time lost and could you make this more efficient?
 
+> Most of the time is lost in the localhost where the data is more reliably translated. It is also lost the most when having few branches and sorters. The more a sorter has to sort, the slower the program is on average. To make it more efficient, it would need to have additional sorters, and possibly a branch that could take on more sorters rather than just two.
+
 ### 2. Does it make sense to run the algorithm as a distributed algorithm? Why or why not?
+
+> It does not make much sense to run this program as a distributed algorithm because the task that it is handling does not take long, and it makes it more complicated, opening up chances for errors. This would make more sense if it was dealing with massive amounts of numbers when speed was critical. Due to the opportunity for innaccuracy, it would not be the best option.
 
 
 
